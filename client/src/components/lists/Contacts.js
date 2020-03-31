@@ -27,7 +27,6 @@ const Contacts = () => {
       ))}
     </ul>
   )
-  // return <ul></ul>
 }
 
 export default Contacts

@@ -7,6 +7,7 @@ import { ApolloProvider } from '@apollo/react-hooks'
 import Container from '@material-ui/core/Container'
 import './App.css'
 
+import AddContact from './components/forms/AddContact'
 import Contacts from './components/lists/Contacts'
 import Title from './components/layout/Title'
 
@@ -19,6 +20,7 @@ const App = () => (
   <ApolloProvider client={client}>
     <Container className='App'>
       <Title />
+      <AddContact />
       <Contacts />
     </Container>
   </ApolloProvider>
