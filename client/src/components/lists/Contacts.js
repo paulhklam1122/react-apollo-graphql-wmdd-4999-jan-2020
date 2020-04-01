@@ -10,7 +10,6 @@ const Contacts = () => {
   const { loading, error, data } = useQuery(GET_CONTACTS)
   if (loading) return 'Loading...'
   if (error) return `Errror! ${error.message}`
-  console.log('data', data)
   return (
     <ul>
       {data.contacts.map(({ id, firstName, lastName }) => (

@@ -42,7 +42,6 @@ const UpdateContact = props => {
         variant='outlined'
         style={{ margin: '10px' }}
       />
-      {console.log(firstName, lastName)}
       <TextField
         label='Last Name'
         defaultValue={lastName}
