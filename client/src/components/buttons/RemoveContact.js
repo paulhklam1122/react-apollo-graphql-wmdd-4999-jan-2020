@@ -1,7 +1,7 @@
 import React from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import { filter } from 'lodash'
-import { GET_CONTACTS, REMOVE_CONTACT } from '../../queries/index'
+import { GET_CONTACTS, REMOVE_CONTACT } from '../../queries'
 
 import Button from '@material-ui/core/Button'
 
@@ -12,8 +12,8 @@ const RemoveContact = ({ id, firstName, lastName }) => {
       cache.writeQuery({
         query: GET_CONTACTS,
         data: {
-          contacts: filter(contacts, c => {
-            return c.id !== removeContact.id
+          contacts: filter(contacts, o => {
+            return o.id !== removeContact.id
           })
         }
       })

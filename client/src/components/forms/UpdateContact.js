@@ -1,15 +1,30 @@
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/react-hooks'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
 
-import { UPDATE_CONTACT } from '../../queries/index'
+import { Button, TextField } from '@material-ui/core'
+
+import { UPDATE_CONTACT } from '../../queries'
 
 const UpdateContact = props => {
   const [id] = useState(props.id)
   const [firstName, setFirstName] = useState(props.firstName)
   const [lastName, setLastName] = useState(props.lastName)
   const [updateContact] = useMutation(UPDATE_CONTACT)
+
+  const updateStateVariable = (variable, value) => {
+    props.updateStateVariable(variable, value)
+    switch (variable) {
+      case 'firstName':
+        setFirstName(value)
+        break
+      case 'lastName':
+        setLastName(value)
+        break
+      default:
+        break
+    }
+  }
+
   return (
     <form
       onSubmit={e => {
@@ -37,18 +52,18 @@ const UpdateContact = props => {
         label='First Name'
         defaultValue={firstName}
         placeholder='i.e. John'
+        onChange={e => updateStateVariable('firstName', e.target.value)}
         margin='normal'
-        onChange={e => setFirstName(e.target.value)}
-        variant='outlined'
+        varian='outlined'
         style={{ margin: '10px' }}
       />
       <TextField
         label='Last Name'
         defaultValue={lastName}
         placeholder='i.e. Smith'
-        onChange={e => setLastName(e.target.value)}
+        onChange={e => updateStateVariable('lastName', e.target.value)}
         margin='normal'
-        variant='outlined'
+        varian='outlined'
         style={{ margin: '10px' }}
       />
       <Button

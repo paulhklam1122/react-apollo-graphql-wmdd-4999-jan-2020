@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { ADD_CONTACT, GET_CONTACTS } from '../../queries/index'
 
 const AddContact = () => {
-  const [id, setId] = useState(uuidv4())
+  const [id] = useState(uuidv4())
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 

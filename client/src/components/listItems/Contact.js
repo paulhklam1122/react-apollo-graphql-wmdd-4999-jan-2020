@@ -21,6 +21,19 @@ const Contact = props => {
     return `${firstName} ${lastName}`
   }
 
+  const updateStateVariable = (variable, value) => {
+    switch (variable) {
+      case 'firstName':
+        setFirstName(value)
+        break
+      case 'lastName':
+        setLastName(value)
+        break
+      default:
+        break
+    }
+  }
+
   return (
     <div>
       {editMode ? (
@@ -29,6 +42,7 @@ const Contact = props => {
           firstName={props.firstName}
           lastName={props.lastName}
           onButtonClick={handleButtonClick}
+          updateStateVariable={updateStateVariable}
         />
       ) : (
         <ListItem>
